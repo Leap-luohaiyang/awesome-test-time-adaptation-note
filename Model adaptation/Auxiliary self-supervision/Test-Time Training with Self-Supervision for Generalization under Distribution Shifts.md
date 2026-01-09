@@ -18,5 +18,6 @@
 
 通过最小化 2 式得到参数 ($\theta_e$, $\theta_s$)，通过最小化和 $x$ 有关的 3 式得到参数 $\theta_e^*$ ，通过 ($\theta_e^*$, $\theta_s$) 预测 $x$
 后，$\theta_e^*$ 被丢弃，共享部分的参数变回 $\theta_e$
+
 在线 TTT：
 ![17-48-02.png](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260109171933544.png)
