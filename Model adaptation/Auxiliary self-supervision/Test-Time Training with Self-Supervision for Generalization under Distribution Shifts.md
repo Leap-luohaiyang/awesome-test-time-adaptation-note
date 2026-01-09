@@ -4,9 +4,9 @@
 模型：标准的 K 层神经网络
 主任务（分类任务）和自监督辅助任务共享模型的前 $\kappa$ 层参数，而后的 $\kappa + 1$ ~ K 层，两个任务均拥有对应于自身任务的参数，即主任务分支和辅助任务分支
 
-![_`9_$29QZFMC3TH{`2[0%NS.png](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260109170829904.png)
+![](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260109170829904.png)
 
-![1I[MWS01W7T87{871{4[N~O.png](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260109170438271.png)
+![](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260109170438271.png)
 
 训练以多任务学习的方式进行，通过分类损失优化主任务分支，自监督损失优化辅助任务分支，共享部分则由两个损失共同优化
 
