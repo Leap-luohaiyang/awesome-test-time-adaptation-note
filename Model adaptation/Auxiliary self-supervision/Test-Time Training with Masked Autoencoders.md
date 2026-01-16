@@ -17,14 +17,14 @@ TTT 通过自监督为每个测试样本生成不同的模型
 对于自然的户外场景，仅通过检测地平线方向就可以了，无需进一步了解场景，这样的旋转预测就太容易了
 对于自上而下视图的图片，旋转预测又太难了，因为从每个方向看起来都同样合理
 
-本文使用 MAE 代替论文 Test-Time Training with Self-Supervision for Generalization under Distribution Shifts 中的自监督部分
+本文使用 MAE 代替论文 [[Test-Time Training with Self-Supervision for Generalization under Distribution Shifts]] 中的自监督部分
 
 **架构**：$Y$ 形，特征提取器 $f$ 同时接一个自监督头 $g$ 和一个主任务头 $h$。$f$ 为 MAE 的编码器，$g$ 为其解码器，均为 ViT 架构。对于主任务头 $h$，MAE 的原始论文使用从编码器特征维度到类别数量的线性映射。本文的作者认为用线性层实现 $h$ 只是一种传统的技术惯例，并将其替换为 ViT-Base 以使其更具表现力
 
 **训练设置**：本文所采用的 MAE 模型以 ViT-Large 作为编码器，并且该编码器在 ImageNet-1k 上以重构为任务进行了预训练。将编码器与未经训练的主任务头结合起来有三种方式：fine-tuning、probing 和 joint training
 1）Fine-tuning：训练时，以端到端方式训练 $h \circ f$ （同时更新 $h$ 和 $f$ 的权重），$f$ 被驱动去专门化于识别任务，丢弃与识别无关的信息（这些信息可能对重建很重要）。此时，分类头 $h$ 学会依赖这些高度特化的识别特征；测试时，TTT 会通过重建任务更新 $f$，从而强行将 $f$ 拉向重建任务的解空间。这将导致 $f$ 的特征表示发生漂移，不再是 $h$ 所依赖的那种“纯识别特征”
 2）ViT probing：仅训练 $h$，冻结 $f$
-3）joint training：Test-Time Training with Self-Supervision for Generalization under Distribution Shifts 当中用的就是这种方式，通过将主任务损失和辅助任务的损失相加，联合训练 $h \circ f$ 和 $g \circ f$。然而使用 MAE 时，这种结合方式在验证集上的表现不佳
+3）joint training：[[Test-Time Training with Self-Supervision for Generalization under Distribution Shifts]] 当中用的就是这种方式，通过将主任务损失和辅助任务的损失相加，联合训练 $h \circ f$ 和 $g \circ f$。然而使用 MAE 时，这种结合方式在验证集上的表现不佳
 
 **Training-time training**：利用预训练的 MAE 的编码器 $f_0$，通过交叉熵损失来训练主任务头，训练好的主任务头表示为 $h_0$
 

@@ -38,5 +38,7 @@
 大多数模型适应方法通过目标测试数据上的无监督损失来微调模型参数来调整其源训练模型
 根据无监督损失函数继续划分
 #### 辅助自监督
-Test-Time Training with Self-Supervision  for Generalization under Distribution Shifts
-Test-time Unsupervised Domain Adaptation
+[[Test-Time Training with Self-Supervision for Generalization under Distribution Shifts]]
+[[Test-time Unsupervised Domain Adaptation]]
+[[TTT++ When Does Self-Supervised Test-Time Training Fail or Thrive]]
+[[Test-Time Training with Masked Autoencoders]]
