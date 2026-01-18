@@ -42,3 +42,7 @@
 [[Test-time Unsupervised Domain Adaptation]]
 [[TTT++ When Does Self-Supervised Test-Time Training Fail or Thrive]]
 [[Test-Time Training with Masked Autoencoders]]
+
+#### 熵最小化
+
+#### 伪标签
