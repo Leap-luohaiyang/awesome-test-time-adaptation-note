@@ -25,7 +25,10 @@ $$\min_\theta\mathbb{E}_{\{x,\hat{y}\}\in\mathcal{D}_t}w_{pl}(x)\cdot d_{pl}(\ha
 $$\begin{cases}m_c=\sum_x[p_\theta(y_c|x)\cdot g(x)]/\sum_xp_\theta(y_c|x),c\in[1,C],\\\hat{y}=\arg\min_cd(g(x),m_c),\forall x\in\mathcal{D}_t,&\end{cases}$$
 其中 $p_\theta(y_c|x) = [p(y|x;\theta)]_c$ 表示与第 $c$ 个类别相关的概率，$g(x)$ 表示输入 $x$ 的特征，$m_c$ 表示第 $c$ 个类别质心，$d(\cdot, \cdot)$ 表示余弦距离函数。 这种方式的优势在于：类别质心总是包含鲁棒的判别信息并能缓解类别不平衡问题，普遍用于一些 TTDA 研究中
 
+[[BMD A General Class-balanced Multicentric  Dynamic Prototype Strategy for Source-free  Domain Adaptation|BMD]]：粗略的质心可能无法有效地表示模糊数据，采用 K-means 聚类来挖掘每个类别的多个原型
+
 ##### 基于邻居的伪标签
+结合相邻标签的预测来生成伪标签，依赖于局部平滑性假设
 
 ##### 基于优化的伪标签
 
