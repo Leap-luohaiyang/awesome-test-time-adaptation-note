@@ -29,6 +29,7 @@ $$\begin{cases}m_c=\sum_x[p_\theta(y_c|x)\cdot g(x)]/\sum_xp_\theta(y_c|x),c\in[
 
 ##### 基于邻居的伪标签
 结合相邻标签的预测来生成伪标签，依赖于局部平滑性假设
+[[Self-Supervised Noisy Label Learning for Source-Free Unsupervised Domain Adaptation|SSNLL]]：在目标域中执行 $K$-means 聚类，并聚合样本所在簇内的邻居的预测
 
 ##### 基于优化的伪标签
 
