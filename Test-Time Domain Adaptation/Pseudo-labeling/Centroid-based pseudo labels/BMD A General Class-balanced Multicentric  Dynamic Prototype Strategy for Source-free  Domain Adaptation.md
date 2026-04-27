@@ -21,7 +21,7 @@ $$
 其中 $M=\max\{1,\lfloor\frac{n_t}{r\times K}\rfloor\}$，$r$ 控制选择比例，K 为类别数量
 
 该策略跨类别平衡的原理图示：
-![image.png](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260120173416475.png)
+![image.png|685](https://papernote-1394983352.cos.ap-nanjing.myqcloud.com/tta-note-img/20260120173416475.png)
 
 然后，可以根据样本和类原型间的相似性迭代，以获得更稳定的原型和伪标签
 $$\begin{aligned}\mathcal{M}_{k}&=\arg\max_{\begin{array}{c}x_t\in\mathcal{X}_t\\|\mathcal{M}_k|=M\end{array}}\frac{\exp\left(\hat{g}_t(x_t)\cdot c_k\right)}{\sum_{j=1}^K\exp\left(\hat{g}_t(x_t)\cdot c_j\right)},\\\mathrm{c}_k&=\frac{1}{M}\sum_{i\in\mathcal{M}_k}\hat{g}_t(x_t^i),\\\hat{y}_{t}&=\underset{k}{\operatorname*{\operatorname*{\arg\min}}}D_f(\hat{g}_t(x_t),c_k).\end{aligned}$$
